@@ -106,7 +106,7 @@ function App() {
     document.getElementById ('CardsContainer').innerHTML  =  "";
   }
   
-  function Search(event){
+function Search(event){
     if(event.key === 'Enter'){
     var SearchString = document.getElementById('SearchBar').value;
     GetHttp("https://swapi.dev/api/people/?search=" +  SearchString,(data)=>{
@@ -118,13 +118,12 @@ function App() {
     function SwitchAsceding(value){
       Ascending = value;
       if(!Ascending){        
-      document.getElementById("DESC-Button").style.backgroundColor = "#FFFFFF";
-      document.getElementById("ASC-Button").style.backgroundColor = "#B8B8B8";
+        document.getElementById("DESC-Button").style.backgroundColor = "#B8B8B8"
+        document.getElementById("ASC-Button").style.backgroundColor = "#FFFFFF"
     }
-    else{
-      
-      document.getElementById("DESC-Button").style.backgroundColor = "#B8B8B8"
-      document.getElementById("ASC-Button").style.backgroundColor = "#FFFFFF"
+    else{      
+        document.getElementById("DESC-Button").style.backgroundColor = "#FFFFFF";
+        document.getElementById("ASC-Button").style.backgroundColor = "#B8B8B8";
     }
     SortResults(operation);
   }
@@ -235,9 +234,9 @@ var operation = 0;
       <input className= 'SearchBar'  id='SearchBar' onKeyDown={(e)=>{Search(e);}}  placeholder="Search" >     
         </input> 
         <span className="SearchIcon"><a><img src={SearchSvg}></img></a></span> 
-        <p style={{display: 'inline-block', color:"#3B3B3B", paddingLeft:'10px'}}>Sort by</p>
+        <p style={{display: 'inline-block', color:"#3B3B3B",   paddingLeft:'10px'}}>Sort by</p>
       
-      <span style={{display: 'inline-block'}}>
+      <span id="SortContainer">
       <div className='Sorting'>
         <select id="sortSelect" onChange={SortResults}>
         <option value={SortingOperation.Name}>Name</option>
